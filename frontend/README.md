@@ -1,59 +1,129 @@
-# Frontend
+# Adarsh Prep Public School — Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
+Is repo me **Angular frontend** aur **Node/Express backend** dono kaam karte hain. Ye README sirf frontend-focused hai, lekin backend ke bina contact form ka data save nahi hoga.
 
-## Development server
+---
 
-To start a local development server, run:
+## 1) Project Overview
 
+Ye frontend school website provide karta hai jisme:
+- Home / Hero content
+- Admission
+- Notices (notices list)
+- Events (events list)
+- Gallery
+- Teachers
+- Contact page (contact form)
+- About, Privacy Policy, Disclaimer
+- Dashboard (admin panel)
+
+Routes (src/app/app.routes.ts):
+- `/` → Home
+- `/admission` → Admission
+- `/notices` → Notices
+- `/events` → Events
+- `/gallery` → Gallery
+- `/teachers` → Teachers
+- `/contact` → Contact
+- `/about` → About
+- `/privacy-policy` → Privacy Policy
+- `/disclaimer` → Disclaimer
+- `/dashboard` → Dashboard
+
+---
+
+## 2) Tech Stack
+- **Frontend:** Angular
+- **Backend communication:** REST API (backend: `/api/contact` etc.)
+
+---
+
+## 3) Prerequisites
+- Node.js installed
+- Backend server running (recommended for contact/dashboard features)
+
+---
+
+## 4) Setup (Frontend)
+
+### Install dependencies
+```bash
+cd frontend
+npm install
+```
+
+### Run development server
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Browser open karein:
+- http://localhost:4200/
 
-## Code scaffolding
+Auto-reload:
+- Source files change hote hi app refresh ho jaati hai.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
+## 5) Build
 ```bash
 ng build
 ```
+Build artifacts:
+- `frontend/dist/`
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+## 6) Tests
+### Unit tests
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
+### End-to-end (if configured)
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+> Note: Angular CLI default me E2E framework include nahi karta.
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 7) Contact Form (Important)
+
+Frontend me contact form submit karta hai. Backend me contact route:
+- **POST** `/api/contact/`
+- **GET** `/api/contact/`
+- **DELETE** `/api/contact/:id`
+
+Backend side पर validation (based on controller):
+- `name`, `email`, `phone`, `subject`, `message` required hain.
+
+---
+
+## 8) Folder Structure (Quick)
+
+- `src/app/features/` → Home/Notices/Events/Gallery/Teachers modules
+- `src/app/pages/` → About/Contact/Privacy Policy/Disclaimer pages
+- `src/app/components/` → reusable components (e.g., contact-form, map)
+- `src/app/dashboard/` → dashboard UI (admin)
+- `src/app/shared/` → header/footer
+
+---
+
+## 9) Common Commands (Cheat Sheet)
+- Run dev: `ng serve`
+- Build: `ng build`
+- Unit test: `ng test`
+- Generate component: `ng generate component <name>`
+
+---
+
+## 10) Troubleshooting
+- अगर app load nahi hoti:
+  - `frontend` folder me `npm install` dubara run karein
+  - port conflict ho to `ng serve --port <port>` use karein
+- Contact submit fail:
+  - backend server check karein
+  - ensure frontend ke API base URL/backend URL match ho (config file me)
+
